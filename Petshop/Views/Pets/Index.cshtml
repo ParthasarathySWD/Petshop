@@ -1,0 +1,38 @@
+﻿@model IEnumerable<Petshop.Models.Pets>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.PetUID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PetName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.PetUID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PetName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new {  id=item.PetUID }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.PetUID })
+        </td>
+    </tr>
+}
+
+</table>
